@@ -64,6 +64,8 @@ namespace StarterAssets
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
 
+		public bool Accelerate = false;
+
 	
 #if ENABLE_INPUT_SYSTEM
 		private PlayerInput _playerInput;
@@ -112,6 +114,11 @@ namespace StarterAssets
 
 		private void Update()
 		{
+			if (Accelerate && _speed > 0)
+            {
+				MoveSpeed += (MoveSpeed / 2) * Time.deltaTime;
+            }
+
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
@@ -154,7 +161,7 @@ namespace StarterAssets
 		private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
-			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+			float targetSpeed = MoveSpeed;
 
 			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
