@@ -8,6 +8,7 @@ public class ElevatorTrigger : MonoBehaviour
     public GameObject UIPressE;
     public GameObject UIExitElevator;
     public GameObject UIElevatorControls;
+    public GameObject ThirdPersonCam;
     private bool ElevatorActivated;
     [SerializeField] private float speed = 3.0f;
 
@@ -41,6 +42,7 @@ public class ElevatorTrigger : MonoBehaviour
                 UIPressE.SetActive(false);
                 UIExitElevator.SetActive(true);
                 UIElevatorControls.SetActive(true);
+                ThirdPersonCam.SetActive(true);
             }
 
             else
@@ -51,6 +53,7 @@ public class ElevatorTrigger : MonoBehaviour
                 UIPressE.SetActive(true);
                 UIExitElevator.SetActive(false);
                 UIElevatorControls.SetActive(false);
+                ThirdPersonCam.SetActive(false);
             }
         }
 

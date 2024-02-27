@@ -53009,6 +53009,7 @@ MonoBehaviour:
   UIPressE: {fileID: 1661789233}
   UIExitElevator: {fileID: 834890602}
   UIElevatorControls: {fileID: 569144655}
+  ThirdPersonCam: {fileID: 1776581790}
   speed: 3
 --- !u!1 &2068482151
 GameObject:
