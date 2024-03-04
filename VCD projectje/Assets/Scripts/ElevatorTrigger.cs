@@ -37,6 +37,9 @@ public class ElevatorTrigger : MonoBehaviour
             if (ElevatorActivated == false)
             {
                 PlayerCapsule.GetComponent<StarterAssets.FirstPersonController>().enabled = false;
+                //PlayerCapsule.GetComponent<StarterAssets.FirstPersonController>().MoveSpeed = 0;
+                // PlayerCapsule.GetComponent<StarterAssets.FirstPersonController>().SprintSpeed = 0;
+                //PlayerCapsule.GetComponent<StarterAssets.FirstPersonController>().JumpHeight = 0;
                 ElevatorActivated = true;
                 PlayerCapsule.transform.SetParent(transform);
                 UIPressE.SetActive(false);
@@ -48,6 +51,9 @@ public class ElevatorTrigger : MonoBehaviour
             else
             {
                 PlayerCapsule.GetComponent<StarterAssets.FirstPersonController>().enabled = true;
+                //PlayerCapsule.GetComponent<StarterAssets.FirstPersonController>().MoveSpeed = 4;
+                //PlayerCapsule.GetComponent<StarterAssets.FirstPersonController>().SprintSpeed = 6;
+                //PlayerCapsule.GetComponent<StarterAssets.FirstPersonController>().JumpHeight = 1;
                 ElevatorActivated = false;
                 PlayerCapsule.transform.SetParent(null);
                 UIPressE.SetActive(true);
