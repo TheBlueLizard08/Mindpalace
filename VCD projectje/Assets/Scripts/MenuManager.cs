@@ -5,6 +5,8 @@ public class MenuManager : MonoBehaviour
 {
     public GameObject Canvas;
     public GameObject PlayerCapsule;
+    public GameObject CreditsCanvas;
+    public GameObject SettingsCanvas;
 
     private void Start()
     {
@@ -40,7 +42,12 @@ public class MenuManager : MonoBehaviour
     public void CloseMainMenu()
     {
         Canvas.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
-        PlayerCapsule.GetComponent<StarterAssets.FirstPersonController>().enabled = true;
+
+        if(CreditsCanvas != isActiveAndEnabled && SettingsCanvas != isActiveAndEnabled)
+        {
+            Debug.Log("Menu still open");
+            Cursor.lockState = CursorLockMode.Locked;
+            PlayerCapsule.GetComponent<StarterAssets.FirstPersonController>().enabled = true;
+        }
     }
 }
