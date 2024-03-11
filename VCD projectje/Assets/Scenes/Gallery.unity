@@ -4405,6 +4405,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8518329689774914536, guid: 5711254fb8fcf3a41a5b90f92339d43f, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8518329689774914536, guid: 5711254fb8fcf3a41a5b90f92339d43f, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1100676493}
+    - target: {fileID: 8518329689774914536, guid: 5711254fb8fcf3a41a5b90f92339d43f, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_volume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8518329689774914536, guid: 5711254fb8fcf3a41a5b90f92339d43f, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.AudioSource, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8518329689774914536, guid: 5711254fb8fcf3a41a5b90f92339d43f, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5711254fb8fcf3a41a5b90f92339d43f, type: 3}
 --- !u!1 &152970950
@@ -28758,6 +28778,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2c0a0b372296eb4d9d26d61f928f033, type: 3}
+--- !u!82 &1100676493 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5068308944066111801, guid: d2c0a0b372296eb4d9d26d61f928f033, type: 3}
+  m_PrefabInstance: {fileID: 1100676492}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1104534448
 GameObject:
   m_ObjectHideFlags: 0
