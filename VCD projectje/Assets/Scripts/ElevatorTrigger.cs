@@ -9,6 +9,8 @@ public class ElevatorTrigger : MonoBehaviour
     public GameObject UIExitElevator;
     public GameObject UIElevatorControls;
     public GameObject ThirdPersonCam;
+    public Light DirLight;
+    public GameObject Canvas;
     private bool ElevatorActivated;
     [SerializeField] private float speed = 3.0f;
 
@@ -68,6 +70,18 @@ public class ElevatorTrigger : MonoBehaviour
             if (Input.GetKey(KeyCode.UpArrow))
             {
                 transform.Translate(Vector3.up * speed * Time.deltaTime);
+                if(DirLight.intensity < 1)
+                {
+                    DirLight.intensity = (DirLight.intensity + 0.05f * Time.deltaTime);
+                }
+                if (DirLight.intensity > 1)
+                {
+                    DirLight.intensity = (DirLight.intensity + 1.5f * Time.deltaTime);
+                }
+                if (DirLight.intensity > 10)
+                {
+                    Canvas.GetComponent<Animator>().enabled = true;
+                }
             }
 
             if (Input.GetKey(KeyCode.DownArrow))
