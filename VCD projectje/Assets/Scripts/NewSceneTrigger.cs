@@ -10,6 +10,7 @@ public class NewSceneTrigger : MonoBehaviour
         if (collisionInfo.name == "PlayerCapsule")
         {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                Cursor.lockState = CursorLockMode.Locked;
         }
     }
 }

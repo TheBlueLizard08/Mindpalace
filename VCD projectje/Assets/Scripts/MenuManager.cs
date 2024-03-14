@@ -4,9 +4,26 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     public GameObject Canvas;
-    public GameObject PlayerCapsule;
+    [SerializeField] GameObject PlayerCapsule;
     public GameObject CreditsCanvas;
     public GameObject SettingsCanvas;
+
+    private void Awake()
+    {
+        PlayerCapsule = GameObject.FindWithTag("Player");
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("OnSceneLoaded: " + scene.name);
+        //Debug.Log(mode);
+        PlayerCapsule = GameObject.FindWithTag("Player");
+    }
 
     private void Start()
     {
@@ -19,6 +36,7 @@ public class MenuManager : MonoBehaviour
         {
             MainMenu();
         }
+
     }
     public void quit()
     {
@@ -43,11 +61,17 @@ public class MenuManager : MonoBehaviour
     {
         Canvas.SetActive(false);
 
-        if(CreditsCanvas != isActiveAndEnabled && SettingsCanvas != isActiveAndEnabled)
-        {
-            Debug.Log("Menu still open");
+        //if(CreditsCanvas != isActiveAndEnabled && SettingsCanvas != isActiveAndEnabled)
+        //{
+            //Debug.Log("Close Menu");
             Cursor.lockState = CursorLockMode.Locked;
             PlayerCapsule.GetComponent<StarterAssets.FirstPersonController>().enabled = true;
-        }
+       // }
+    }
+
+    void OnDisable()
+    {
+        Debug.Log("OnDisable");
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
