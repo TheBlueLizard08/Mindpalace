@@ -10,7 +10,6 @@ public class ReloadScene : MonoBehaviour
         if (collisionInfo.name == "PlayerCapsule")
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 }

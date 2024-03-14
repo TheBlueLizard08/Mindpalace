@@ -11,6 +11,7 @@ public class ElevatorTrigger : MonoBehaviour
     public GameObject ThirdPersonCam;
     public Light DirLight;
     public GameObject Canvas;
+    public GameObject CreditsTimeline;
     private bool ElevatorActivated;
     [SerializeField] private float speed = 3.0f;
 
@@ -80,7 +81,10 @@ public class ElevatorTrigger : MonoBehaviour
                 }
                 if (DirLight.intensity > 10)
                 {
-                    Canvas.GetComponent<Animator>().enabled = true;
+                    CreditsTimeline.SetActive(true);
+                    UIPressE.SetActive(false);
+                    UIExitElevator.SetActive(false);
+                    UIElevatorControls.SetActive(false);
                 }
             }
 
