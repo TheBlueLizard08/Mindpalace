@@ -73,18 +73,19 @@ public class ElevatorTrigger : MonoBehaviour
                 transform.Translate(Vector3.up * speed * Time.deltaTime);
                 if(DirLight.intensity < 1)
                 {
-                    DirLight.intensity = (DirLight.intensity + 0.05f * Time.deltaTime);
+                    DirLight.intensity = (DirLight.intensity + 0.005f * Time.deltaTime);
                 }
-                if (DirLight.intensity > 1)
+                if (DirLight.intensity > 0.1)
                 {
-                    DirLight.intensity = (DirLight.intensity + 1.5f * Time.deltaTime);
+                    DirLight.intensity = (DirLight.intensity + 0.01f * Time.deltaTime);
                 }
-                if (DirLight.intensity > 10)
+                if (DirLight.intensity > 0.25)
                 {
                     CreditsTimeline.SetActive(true);
                     UIPressE.SetActive(false);
                     UIExitElevator.SetActive(false);
                     UIElevatorControls.SetActive(false);
+                    Cursor.lockState = CursorLockMode.None;
                 }
             }
 
