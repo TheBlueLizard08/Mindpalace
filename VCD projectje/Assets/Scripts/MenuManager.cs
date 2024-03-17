@@ -7,6 +7,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject PlayerCapsule;
     public GameObject CreditsCanvas;
     public GameObject SettingsCanvas;
+    private bool MoveDisabled;
 
     private void Awake()
     {
@@ -27,14 +28,14 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
-        CloseMainMenu();
+        CloseMenu();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            MainMenu();
+            Menu();
         }
 
     }
@@ -44,20 +45,30 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void RestartGame()
+    public void MenuScreen()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("Main Menu");
     }
 
-    public void MainMenu()
+    public void Menu()
     {
         Canvas.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
-        PlayerCapsule.GetComponent<StarterAssets.FirstPersonController>().enabled = false;
+
+        //check if movement is already disabled
+        if (PlayerCapsule.GetComponent<StarterAssets.FirstPersonController>().enabled == false)
+        {
+            MoveDisabled = true;
+        }
+
+        else
+        {
+            MoveDisabled = false; 
+            PlayerCapsule.GetComponent<StarterAssets.FirstPersonController>().enabled = false;
+        }
     }
 
-    public void CloseMainMenu()
+    public void CloseMenu()
     {
         Canvas.SetActive(false);
 
@@ -65,7 +76,12 @@ public class MenuManager : MonoBehaviour
         //{
             //Debug.Log("Close Menu");
             Cursor.lockState = CursorLockMode.Locked;
+
+        //check if movement needs to stay disabled or not
+        if (MoveDisabled == false)
+        {
             PlayerCapsule.GetComponent<StarterAssets.FirstPersonController>().enabled = true;
+        }
        // }
     }
 
